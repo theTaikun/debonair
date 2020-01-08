@@ -3,11 +3,11 @@
 Gem::Specification.new do |spec|
   spec.name          = "debonair"
   spec.version       = "0.1.0"
-  spec.authors       = [""]
+  spec.authors       = ["theTaikun"]
   spec.email         = [""]
 
-  spec.summary       = "TODO: Write a short summary, because Rubygems requires one."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "A professional Jekyll theme."
+  spec.homepage      = "https://github.com/theTaikun/debonair"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) }
