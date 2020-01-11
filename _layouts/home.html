@@ -15,7 +15,9 @@ layout: default
       {%- for post in site.posts -%}
       <li class="article">
        <a class="post-link" href="{{ post.url | relative_url }}">
+        {% if post.feature_image %}
         <img class="feature_image" src={{post.feature_image}}>
+        {% endif %}
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
         <h3>
