@@ -1,4 +1,5 @@
 # debonair
+## Debonair is still in very early development. Not suitable for production use.
 
 ## Help! It's Flashing "development" at the Top of My Page!
 This is by design. Some features (such as Google Analytics) will be enabled or disabled depending on environment.
