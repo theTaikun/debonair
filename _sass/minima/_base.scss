@@ -8,7 +8,18 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
+.environment {
+    animation: flasher 1s linear infinite;
+    color: white;
+    font-size: 4rem;
+}
 
+@keyframes flasher {
+    50% {
+        color: red;
+        background-color: white;
+    }
+}
 
 /**
  * Basic styling
