@@ -21,6 +21,11 @@ dl, dd, ol, ul, figure {
     }
 }
 
+.sidebar{
+    width: 40%;
+    background-color: grey;
+}
+
 /**
  * Basic styling
  */
@@ -38,9 +43,9 @@ body {
        -o-font-feature-settings: "kern" 1;
           font-feature-settings: "kern" 1;
   font-kerning: normal;
-  display: flex;
+  //display: flex;
   min-height: 100vh;
-  flex-direction: column;
+  //flex-direction: column;
 }
 
 
@@ -206,6 +211,11 @@ pre {
   }
 }
 
+.mid-wrapper{
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 6rem;
+  }
 
 
 /**

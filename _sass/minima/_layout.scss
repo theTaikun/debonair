@@ -187,8 +187,6 @@
   padding: $spacing-unit 0;
   flex: 1;
 
-  // Spacing for floating header
-  padding-top: 6rem;
 }
 
 .page-heading {
@@ -203,7 +201,7 @@
   margin-left: 0;
   list-style: none;
 
-  > li {
+  > .article {
     margin-bottom: $spacing-unit;
   }
 }
