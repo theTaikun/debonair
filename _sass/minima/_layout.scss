@@ -2,12 +2,13 @@
  * Site header
  */
 .site-header {
-  border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
+  // border-top: 5px solid $grey-color-dark;
+  // border-bottom: 1px solid $grey-color-light;
   min-height: $spacing-unit * 1.865;
+  max-height: 6rem;
 
   // Positioning context for the mobile navigation icon
-  //position: relative;
+  // position: relative;
 
   // Persistent Header
   position: fixed;
@@ -187,7 +188,7 @@
   flex: 1;
 
   // Spacing for floating header
-  padding-top: 200px;
+  padding-top: 6rem;
 }
 
 .page-heading {
