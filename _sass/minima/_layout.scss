@@ -200,9 +200,14 @@
 .post-list {
   margin-left: 0;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
   > .article {
     margin-bottom: $spacing-unit;
+    width: 40%;
   }
 }
 
