@@ -1,3 +1,7 @@
+aside.sidebar {
+    margin-left: 2em;
+}
+
 article aside{
     width: 40%;
     padding-left: .5rem;
