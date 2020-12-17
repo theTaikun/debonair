@@ -4,11 +4,15 @@
   {%- include head.html -%}
 
   <body>
-
+    {%- if jekyll.environment == 'production' and site.gtm -%}
+        {%- include gtm-body_live.html -%}
+    {%- elsif jekyll.environment != 'production' -%}
+        {%- include gtm-body_{{jekyll.environment}}.html -%}
+    {%- endif -%}
     {%- include header.html -%}
-
       <div class="wrapper mid-wrapper">
     <aside class="sidebar">
+        {%- include aside.html -%}
     </aside>
     <main class="page-content" aria-label="Content" role="main">
         <section>
@@ -17,7 +21,5 @@
     </main>
     </div>
     {%- include footer.html -%}
-
   </body>
-
 </html>

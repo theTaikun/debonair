@@ -17,7 +17,7 @@ layout: default
 
   <div class="post-content e-content wrapper" itemprop="articleBody">
       {% if page.feature_image %}
-      <img class="feature_image" src={{site.baseurl}}{{page.feature_image}}>
+      <img style="width:100%;" class="feature_image" src={{page.feature_image | relative_url}}>
       {% endif %}
     {{ content }}
   </div>
