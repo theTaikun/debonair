@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<article class="post">
+
+    <header class="post-header">
+        <h1 class="post-title">Author: {{ page.title | escape }}</h1>
+        {%- if page.image -%}
+        <img style="width:25%" src="{{ "/assets/images/staff" | relative_url}}/{{page.image}}" />
+        {%- endif -%}
+        {%- if page.website -%}
+        <p><a href="{{page.website}}" >{{page.website}}</a></p>
+        {%- endif -%}
+
+        {%- if page.social -%}
+            Social Media:
+            {%- include social-author.html -%}
+        {%- endif -%}
+        <div class="post-content">
+            {{ content }}
+        </div>
+    </header>
+
+    <h2>Posts by {{page.title}}</h2>
+
+
+    <ul>
+        {% assign filtered_posts = site.posts | where: 'author', page.name %}
+        {% for post in filtered_posts %}
+
+      <li class="article">
+       <a class="" href="{{ post.url | relative_url }}">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="">{{ post.date | date: date_format }}</span>
+        <h3>
+            {{ post.title | escape }}
+        </h3>
+
+        <p class="article-excerpt">
+            {% if post.description %}{{ post.description | strip_html | truncate: 167 }}
+            {% else %}{{ post.excerpt | strip_html }}
+            {% endif %}
+        </p>
+       </a>
+      </li>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+
+</article>
