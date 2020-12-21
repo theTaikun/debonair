@@ -209,7 +209,6 @@
     margin-bottom: $spacing-unit;
     width: 40%;
     box-shadow: 10px 10px 10px grey;
-    padding: 2%;
   }
 
   .article-excerpt{
@@ -227,6 +226,8 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
+  height: 100%;
+  margin: 2%;
 }
 
 
