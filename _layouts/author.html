@@ -21,11 +21,12 @@ layout: default
         </div>
     </header>
 
-    <h2>Posts by {{page.title}}</h2>
+    {% assign filtered_posts = site.posts | where: 'author', page.short_name %}
+    {% if filtered_posts.size > 0 %}
+    <h2>Posts by {{page.title}}: {{ filtered_posts.size}}</h2>
 
 
     <ul>
-        {% assign filtered_posts = site.posts | where: 'author', page.name %}
         {% for post in filtered_posts %}
 
       <li class="article">
@@ -45,10 +46,6 @@ layout: default
       </li>
         {% endfor %}
     </ul>
-
-
-
-
-
+    {% endif %}
 
 </article>
