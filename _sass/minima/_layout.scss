@@ -208,6 +208,13 @@
   > .article {
     margin-bottom: $spacing-unit;
     width: 40%;
+    box-shadow: 10px 10px 10px grey;
+  }
+
+  .article-excerpt{
+    text-decoration: none solid black auto;
+    font-size: initial;
+    color: initial;
   }
 }
 
@@ -219,6 +226,8 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
+  height: 100%;
+  margin: 2%;
 }
 
 
