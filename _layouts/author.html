@@ -6,7 +6,10 @@ layout: default
     <header class="post-header">
         <h1 class="post-title">Author: {{ page.title | escape }}</h1>
         {%- if page.image -%}
-        <img style="width:25%" src="{{ "/assets/images/staff" | relative_url}}/{{page.image}}" />
+            <p><img style="width:25%" src="{{ "/assets/images/staff" | relative_url}}/{{page.image}}" /></p>
+        {%- endif -%}
+        {%- if page.position -%}
+            <h2 class="position">{{page.position}}</h2>
         {%- endif -%}
         {%- if page.website -%}
         <p><a href="{{page.website}}" >{{page.website}}</a></p>
@@ -16,16 +19,29 @@ layout: default
             Social Media:
             {%- include social-author.html -%}
         {%- endif -%}
+        {%- if page.interests -%}
+
+            {% if page.interests.size > 0 %}
+                Interests:
+                <ul class="interests">
+                {% for interest in page.interests %}
+                    <li>{{ interest }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {%- endif -%}
+        <hr>
         <div class="post-content">
             {{ content }}
         </div>
     </header>
 
-    <h2>Posts by {{page.title}}</h2>
+    {% assign filtered_posts = site.posts | where: 'author', page.short_name %}
+    {% if filtered_posts.size > 0 %}
+    <h2>Posts by {{page.title}}: {{ filtered_posts.size}}</h2>
 
 
     <ul>
-        {% assign filtered_posts = site.posts | where: 'author', page.name %}
         {% for post in filtered_posts %}
 
       <li class="article">
@@ -45,10 +61,6 @@ layout: default
       </li>
         {% endfor %}
     </ul>
-
-
-
-
-
+    {% endif %}
 
 </article>
