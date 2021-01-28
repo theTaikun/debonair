@@ -44,7 +44,7 @@ layout: default
     <ul>
         {% for post in filtered_posts %}
 
-      <li class="article">
+      <li class="post-list article">
        <a class="" href="{{ post.url | relative_url }}">
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="">{{ post.date | date: date_format }}</span>
