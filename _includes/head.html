@@ -1,10 +1,8 @@
 <head>
-    {%- if jekyll.environment == 'production' and site.gtm -%}
-        {%- include gtm-head_live.html -%}
+    {%- if site.gtm -%}
+        {%- include gtm-head_{{jekyll.environment}}.html -%}
     {%- elsif jekyll.environment == 'production' and site.ga -%}
         {%- include google_analytics.html -%}
-    {%- elsif jekyll.environment != 'production' -%}
-        {%- include gtm-head_{{jekyll.environment}}.html -%}
     {%- endif -%}
     {%- include favicon.html %}
     <meta charset="utf-8">
