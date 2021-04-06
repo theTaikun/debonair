@@ -57,7 +57,8 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit / 2;
-    background-color: $background-color;
+    /* background-color: $background-color */;
+    background-color: black; // Allow hamburger menu to be read on mobile
     border: 1px solid $grey-color-light;
     border-radius: 5px;
     text-align: right;
@@ -207,7 +208,7 @@
 
   > .article {
     margin-bottom: $spacing-unit;
-    width: 40%;
+    width: 100%;
     box-shadow: 10px 10px 10px grey;
   }
 
