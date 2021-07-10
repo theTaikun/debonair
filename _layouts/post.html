@@ -6,7 +6,7 @@ layout: default
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
       {% if page.feature_image %}
-        <img style="width:100%;" class="feature_image" src={{page.feature_image | relative_url}}>
+        <img itemprop="image" style="width:100%;" class="feature_image" src={{page.feature_image | relative_url}}>
       {% endif %}
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -15,12 +15,12 @@ layout: default
       </time>
       {% assign author = site.authors | where: 'short_name', page.author | first %}
       {%- if author -%}
-      <div class="author_container">
+      <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="author_container">
           <a class="author_page" href="{{ author.url | relative_url}}">
         {%- if author.image -%}
-           <img style="width:15%" src="{{ "/assets/images/staff" | relative_url}}/{{author.image}}" />
+           <img itemprop="image" style="width:15%" src="{{ "/assets/images/staff" | relative_url}}/{{author.image}}" />
         {%- endif -%}
-        <p>By <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author.name }}</span></span></p>
+        <p>By <span class="p-author h-card" itemprop="name">{{ author.name }}</span></p>
           </a>
       </div>
       {%- endif -%}</p>
