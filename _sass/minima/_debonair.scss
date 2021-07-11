@@ -21,7 +21,7 @@ html{
 }
 
 .mid-wrapper{
-  display: flex;
+  /*! display: flex; */ //Remove flex when not showing sidebar
   flex-direction: row-reverse;
   padding-top: 6rem;
   flex-grow: 1;
@@ -92,3 +92,13 @@ html{
     height: 100%;
     margin: 2%;
 }
+
+.wrapper {
+    max-width: 100%; // Override minima, allows setting bg color of whole area
+    margin: 0 $spacing-unit; //set actual max-width using margin
+}
+
+.feature_image{
+    max-height: 50vh;
+}
+
