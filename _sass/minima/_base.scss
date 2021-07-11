@@ -8,31 +8,11 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
-.environment {
-    animation: flasher 1s linear infinite;
-    color: white;
-    font-size: 4rem;
-}
 
-@keyframes flasher {
-    50% {
-        color: red;
-        background-color: white;
-    }
-}
-
-.sidebar{
-    width: 33.3%;
-    background-color: lightgrey;
-}
 
 /**
  * Basic styling
  */
-html{
-    font-size: $root-em;
-}
-
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
@@ -211,12 +191,6 @@ pre {
   }
 }
 
-.mid-wrapper{
-  display: flex;
-  flex-direction: row-reverse;
-  padding-top: 6rem;
-  flex-grow: 1;
-  }
 
 
 /**

@@ -1,0 +1,94 @@
+html{
+    font-size: $root-em;
+}
+
+.environment {
+    animation: flasher 1s linear infinite;
+    color: white;
+    font-size: 4rem;
+}
+
+@keyframes flasher {
+    50% {
+        color: red;
+        background-color: white;
+    }
+}
+
+.sidebar{
+    width: 33.3%;
+    background-color: lightgrey;
+}
+
+.mid-wrapper{
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 6rem;
+  flex-grow: 1;
+  }
+
+
+// Base overrides:
+
+.site-header{
+    border-top: none;
+    border-bottom: none;
+    max-height: 6rem;
+
+
+    // Persistent Header
+    position: fixed;
+    width: 100%;
+    background-color: black;
+}
+
+.site-title {
+    &,
+    &:visited {
+        color: $grey-color-light;
+    }
+}
+
+.site-nav {
+    .page-link {
+        color: white;
+    }
+
+    @include media-query($on-palm){
+        background-color: black; // Allow hamburger menu to be read on mobile
+    }
+}
+
+.site-footer{
+    background-color: $grey-color-dark;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  // .article takes the place of li styling,
+  // so reset li to initial to override minima.
+  > li {
+      margin-bottom: initial;
+  }
+
+  > .article {
+    margin-bottom: $spacing-unit;
+    width: 100%;
+    box-shadow: 10px 10px 10px grey;
+  }
+
+  .article-excerpt{
+      text-decoration: none solid black auto;
+      font-size: initial;
+      color: initial;
+  }
+}
+
+.post-link {
+    height: 100%;
+    margin: 2%;
+}
