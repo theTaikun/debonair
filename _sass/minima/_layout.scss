@@ -2,18 +2,12 @@
  * Site header
  */
 .site-header {
-  // border-top: 5px solid $grey-color-dark;
-  // border-bottom: 1px solid $grey-color-light;
+  border-top: 5px solid $grey-color-dark;
+  border-bottom: 1px solid $grey-color-light;
   min-height: $spacing-unit * 1.865;
-  max-height: 6rem;
 
   // Positioning context for the mobile navigation icon
-  // position: relative;
-
-  // Persistent Header
-  position: fixed;
-  width: 100%;
-  background-color: black;
+  position: relative;
 }
 
 .site-title {
@@ -26,7 +20,7 @@
 
   &,
   &:visited {
-    color: $grey-color-light;
+    color: $grey-color-dark;
   }
 }
 
@@ -43,8 +37,7 @@
   }
 
   .page-link {
-    // color: $text-color;
-    color: white;
+    color: $text-color;
     line-height: $base-line-height;
 
     // Gaps between nav items, but not on the last one
@@ -57,8 +50,7 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit / 2;
-    /* background-color: $background-color */;
-    background-color: black; // Allow hamburger menu to be read on mobile
+    background-color: $background-color;
     border: 1px solid $grey-color-light;
     border-radius: 5px;
     text-align: right;
@@ -116,7 +108,6 @@
 .site-footer {
   border-top: 1px solid $grey-color-light;
   padding: $spacing-unit 0;
-  background-color: $grey-color-dark;
 }
 
 .footer-heading {
@@ -187,7 +178,6 @@
 .page-content {
   padding: $spacing-unit 0;
   flex: 1;
-
 }
 
 .page-heading {
@@ -201,21 +191,9 @@
 .post-list {
   margin-left: 0;
   list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
 
-  > .article {
+  > li {
     margin-bottom: $spacing-unit;
-    width: 100%;
-    box-shadow: 10px 10px 10px grey;
-  }
-
-  .article-excerpt{
-    text-decoration: none solid black auto;
-    font-size: initial;
-    color: initial;
   }
 }
 
@@ -227,8 +205,6 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
-  height: 100%;
-  margin: 2%;
 }
 
 
