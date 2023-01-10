@@ -3,38 +3,35 @@ layout: default
 ---
 
 <div class="home">
-  {%- if page.title -%}
+    {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+    {%- endif -%}
 
-  {{ content }}
+    {{ content }}
 
-  {%- if site.posts.size > 0 -%}
-  <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
+    {%- if site.posts.size > 0 -%}
+    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
     <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li class="article {% if forloop.index <=1 %}article--latest {% endif %}">
-       <a class="post-link" href="{{ post.url | relative_url }}">
-        {% if post.feature_image %}
-        <img class="feature_image" src={{post.feature_image | relative_url}}>
-        {% endif %}
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-            {{ post.title | escape }}
-        </h3>
+        {%- for post in site.posts -%}
+        <li class="article {% if forloop.index <=1 %}article--latest {% endif %}">
+            <a class="post-link" href="{{ post.url | relative_url }}">
+                {% if post.feature_image %}
+                    <img class="feature_image" src={{post.feature_image | relative_url}}>
+                {% endif %}
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                <span class="post-meta">{{ post.date | date: date_format }}</span>
+                <h3>{{ post.title | escape }}</h3>
 
-	<p class="article-excerpt">
-            {% if post.description %}{{ post.description | strip_html | truncate: 167 }}
-            {% else %}{{ post.excerpt | strip_html | truncate: 167 }}
-            {% endif %}
-        </p>
-       </a>
-      </li>
-      {%- endfor -%}
+                <p class="article-excerpt">
+                {% if post.description %}{{ post.description | strip_html | truncate: 167 }}
+                {% else %}{{ post.excerpt | strip_html | truncate: 167 }}
+                {% endif %}
+                </p>
+            </a>
+        </li>
+        {%- endfor -%}
     </ul>
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%}
-
+    {%- endif -%}
 </div>
