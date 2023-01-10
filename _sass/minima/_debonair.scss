@@ -64,10 +64,21 @@ html{
 }
 
 .post-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+
+  @include media-query($on-palm){
+      grid-template-columns: 1fr;
+  }
+
+  > .article--latest {
+      grid-column-end: span 2;
+      grid-row-end: span 2;
+      @include media-query($on-palm){
+          grid-column-end: 2;
+      }
+  }
 
   // .article takes the place of li styling,
   // so reset li to initial to override minima.
@@ -76,7 +87,6 @@ html{
   }
 
   > .article {
-    margin-bottom: $spacing-unit;
     width: 100%;
     box-shadow: 10px 10px 10px grey;
   }
@@ -91,6 +101,7 @@ html{
 .post-link {
     height: 100%;
     margin: 2%;
+    text-align: center;
 }
 
 .wrapper {
@@ -100,5 +111,7 @@ html{
 
 .feature_image{
     max-height: 50vh;
+    min-width: 80%;
+    object-fit: cover;
 }
 
