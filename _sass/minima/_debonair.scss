@@ -5,7 +5,7 @@ html{
 .environment {
     animation: flasher 1s linear infinite;
     color: white;
-    font-size: 4rem;
+    font-size: 2rem;
 }
 
 @keyframes flasher {
@@ -16,17 +16,22 @@ html{
 }
 
 .sidebar{
-    width: 33.3%;
     background-color: lightgrey;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    margin-top: $base-line-height * $base-font-size * 2.25;
+    @include media-query($on-palm){
+        display: none;
+    }
 }
 
 .mid-wrapper{
-  /*! display: flex; */ //Remove flex when not showing sidebar
-  flex-direction: row-reverse;
-  padding-top: 6rem;
-  flex-grow: 1;
-  }
-
+    grid-row-start: 1;
+    margin-top: $base-line-height * $base-font-size * 2.25;
+    @include media-query($on-palm){
+        grid-column-end: span 2;
+    }
+}
 
 // Base overrides:
 
@@ -61,6 +66,8 @@ html{
 
 .site-footer{
     background-color: $grey-color-dark;
+    grid-column-start: 1;
+    grid-column-end: span 2;
 }
 
 .post-list {
@@ -108,11 +115,6 @@ html{
     height: 100%;
     margin: 2%;
     text-align: center;
-}
-
-.wrapper {
-    max-width: 100%; // Override minima, allows setting bg color of whole area
-    margin: 0 $spacing-unit; //set actual max-width using margin
 }
 
 .feature_image{
