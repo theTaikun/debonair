@@ -23,9 +23,11 @@ body {
        -o-font-feature-settings: "kern" 1;
           font-feature-settings: "kern" 1;
   font-kerning: normal;
-  display: flex;
+  display: grid;
   min-height: 100vh;
-  flex-direction: column;
+  grid-template-columns: [main] 1fr [aside] 33%;
+  grid-template-rows: [mid] 1fr [footer] auto;
+  column-gap: 2vh;
 }
 
 
@@ -161,6 +163,10 @@ code {
 pre {
   padding: 8px 12px;
   overflow-x: auto;
+
+  /* Allows pre ele to be responsive */
+  word-wrap: break-word;
+  white-space: break-spaces;
 
   > code {
     border: 0;
