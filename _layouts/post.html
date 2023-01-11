@@ -24,6 +24,7 @@ layout: default
           </a>
       </div>
       {%- endif -%}</p>
+      Last Update: {{ page.last_updated | default: page.date | date: "%B %d, %Y" }}
   </header>
 
   <div class="post-content e-content wrapper" itemprop="articleBody">
