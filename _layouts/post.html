@@ -25,6 +25,9 @@ layout: default
       </div>
       {%- endif -%}</p>
       <span class=article_last-update>Last Update: {{ page.last_updated | default: page.date | date: "%B %d, %Y" }}</span>
+      {%- if page.editor_note -%}
+          <p class="editor_note"><em>Editor Note</em> <br> {{ page.editor_note }}</p>
+      {%- endif -%}
   </header>
 
   <div class="post-content e-content wrapper" itemprop="articleBody">
