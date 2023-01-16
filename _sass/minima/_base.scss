@@ -24,9 +24,9 @@ body {
           font-feature-settings: "kern" 1;
   font-kerning: normal;
   display: grid;
-  min-height: 100vh;
-  grid-template-columns: [main] 1fr [aside] 33%;
-  grid-template-rows: [mid] 1fr [footer] auto;
+  height: 100vh;
+  grid-template-columns: [main] 1fr [aside] 66%;
+  grid-template-rows: [header] auto [mid] 1fr [footer] auto;
   column-gap: 2vh;
 }
 
