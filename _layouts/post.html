@@ -31,6 +31,7 @@ layout: default
   </header>
 
   <div class="post-content e-content wrapper" itemprop="articleBody">
+    {% include toc.html html=content class="article_toc" id="article_toc" %}
     {{ content }}
   </div>
 
