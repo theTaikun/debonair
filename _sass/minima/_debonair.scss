@@ -33,6 +33,7 @@ html{
     max-width: 100%;
     width: 100%;
     padding-left: 0;
+    padding-right: 0;
     @include inverse-media-query($on-palm){
         margin-top: unset;
         min-width: 0;
