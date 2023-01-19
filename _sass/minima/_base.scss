@@ -27,7 +27,7 @@ body {
   height: 100vh;
   grid-template-columns: [main] 1fr [aside] 66%;
   grid-template-rows: [header] auto [mid] 1fr [footer] auto;
-  column-gap: 2vh;
+  /* column-gap: 2vh; */
 }
 
 

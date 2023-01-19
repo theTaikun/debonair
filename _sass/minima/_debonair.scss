@@ -20,7 +20,7 @@ html{
     background-color: lightgrey;
     grid-column-start: 1;
     grid-row-start: 2;
-    padding: 2vh;
+    padding: 5vh;
     @include inverse-media-query($on-palm){
         display: unset;
     }
@@ -30,6 +30,9 @@ html{
     grid-row-start: 1;
     grid-column-end: span 2;
     margin-top: $base-line-height * $base-font-size * 2.25;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 0;
     @include inverse-media-query($on-palm){
         margin-top: unset;
         min-width: 0;
