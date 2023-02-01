@@ -8,9 +8,9 @@
         <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#facebook' | relative_url }}"></use></svg>
     </a></li>
 
-    <!--li><a href="http://www.reddit.com/submit?url={{site.url}}{{ page.url }}&title={{ page.title  }}">
-        <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#reddit' | relative_url }}"></use></svg>
-    </a></li-->
+    <li><a href="http://www.reddit.com/submit?url={{ page.url | absolute_url }}&title={{ page.title  }}">
+        <img class="svg-icon" src="{{ '/assets/reddit.svg' | relative_url }}"></img>
+    </a></li>
 
     <!--li><a href="http://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{page.url}}&title={{page.title}}&summary=&source={{ site.url }}">
         <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg>
