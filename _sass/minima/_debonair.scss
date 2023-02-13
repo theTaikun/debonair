@@ -6,6 +6,7 @@ html{
     animation: flasher 1s linear infinite;
     color: white;
     font-size: 2rem;
+    position: fixed;
 }
 
 @keyframes flasher {
@@ -19,8 +20,9 @@ html{
     display: none;
     background-color: lightgrey;
     grid-column-start: 1;
-    grid-row-start: 2;
+    grid-row-start: 1;
     padding: 5vh;
+    margin-top: $base-line-height * $base-font-size * 2.25;
     @include inverse-media-query($on-palm){
         display: unset;
     }
@@ -58,7 +60,6 @@ html{
     width: 100%;
     background-color: black;
     @include inverse-media-query($on-palm){
-        position: unset;
         grid-row-start: 1;
         grid-column-end: span 2;
     }
@@ -86,7 +87,7 @@ html{
     grid-column-start: 1;
     grid-column-end: span 2;
   @include inverse-media-query($on-palm){
-    grid-column-end: span 1;
+    grid-column-end: span 2;
   }
 }
 

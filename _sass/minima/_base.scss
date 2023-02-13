@@ -25,9 +25,12 @@ body {
   font-kerning: normal;
   display: grid;
   height: 100vh;
-  grid-template-columns: [main] 1fr [aside] 66%;
+  grid-template-columns: [main] 1fr;
   grid-template-rows: [header] auto [mid] 1fr [footer] auto;
   /* column-gap: 2vh; */
+  @include inverse-media-query($on-palm){
+      grid-template-columns: [main] 1fr [aside] 66%;
+  }
 }
 
 
