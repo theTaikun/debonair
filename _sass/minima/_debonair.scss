@@ -108,6 +108,10 @@ html{
       }
   }
 
+  > .article--draft{
+      background-color: grey;
+  }
+
   // .article takes the place of li styling,
   // so reset li to initial to override minima.
   > li {
