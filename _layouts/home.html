@@ -13,10 +13,10 @@ layout: default
     <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
     <ul class="post-list">
         {%- for post in site.posts -%}
-        <li class="article {% if forloop.index <=1 %}article--latest {% endif %}">
+        <li class="article{% if forloop.index <=1 %} article--latest{% endif %}{% if post.draft %} article--draft{% endif %}">
             <a class="post-link" href="{{ post.url | relative_url }}">
-                {% if post.feature_image %}
-                    <img class="feature_image" src={{post.feature_image | relative_url}}>
+                {% if post.image %}
+                    <img class="feature_image" src={{post.image | relative_url}}>
                 {% endif %}
                 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
                 <span class="post-meta">{{ post.date | date: date_format }}</span>
