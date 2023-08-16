@@ -1,23 +1,37 @@
 ---
 layout: default
 ---
-<article class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
-  </header>
+<div class="home">
+    {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%}
 
-  <div class="post-content">
-      <ol>
-      {% for post in site.posts %}
-        {% if post.category == page.category %}
-        <li>
-            <a href="{{post.url | relative_url }}" >{{ post.title}}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-        </ul>
     {{ content }}
-  </div>
 
-</article>
+    {%- if site.posts.size > 0 -%}
+    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
+    <ol class="post-list">
+        {%- for post in site.posts -%}
+            {% if post.category == page.category %}
+                <li class="article{% if forloop.index <=1 %} article--latest{% endif %}{% if post.draft %} article--draft{% endif %}">
+                    <a class="post-link" href="{{ post.url | relative_url }}">
+                        {% if post.image %}
+                            <img class="feature_image" src={{post.image | relative_url}}>
+                        {% endif %}
+                        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                        <span class="post-meta">{{ post.date | date: date_format }}</span>
+                        <h3>{{ post.title | escape }}</h3>
+
+                        <p class="article-excerpt">
+                        {% if post.description %}{{ post.description | strip_html | truncate: 167 }}
+                        {% else %}{{ post.excerpt | strip_html | truncate: 167 }}
+                        {% endif %}
+                        </p>
+                    </a>
+                </li>
+            {%- endif %}
+        {%- endfor -%}
+    </ol>
+    {%- endif -%}
+</div>
