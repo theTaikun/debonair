@@ -4,27 +4,28 @@ layout: default
 <article class="post">
 
     <header class="post-header">
-        <h1 class="post-title">Author: {{ page.title | escape }}</h1>
-        {%- if page.image -%}
-            <p><img style="width:25%" src="{{ "/assets/images/staff" | relative_url}}/{{page.image}}" /></p>
+        {% assign author = site.data.authors[page.author] %}
+        <h1 class="post-title">Author: {{ author.name | escape }}</h1>
+        {%- if author.image -%}
+            <p><img style="width:25%" src="{{ "/assets/images/staff" | relative_url}}/{{author.image}}" /></p>
         {%- endif -%}
-        {%- if page.position -%}
-            <h2 class="position">{{page.position}}</h2>
+        {%- if author.position -%}
+            <h2 class="position">{{author.position}}</h2>
         {%- endif -%}
-        {%- if page.website -%}
-        <p><a href="{{page.website}}" >{{page.website}}</a></p>
+        {%- if author.url -%}
+        <p><a href="{{ author.url }}" >{{author.url}}</a></p>
         {%- endif -%}
 
-        {%- if page.social -%}
+        {%- if author.social -%}
             Social Media:
             {%- include social-author.html -%}
         {%- endif -%}
-        {%- if page.interests -%}
+        {%- if author.interests -%}
 
-            {% if page.interests.size > 0 %}
+            {% if author.interests.size > 0 %}
                 Interests:
                 <ul class="interests">
-                {% for interest in page.interests %}
+                {% for interest in author.interests %}
                     <li>{{ interest }}</li>
                 {% endfor %}
                 </ul>
@@ -36,9 +37,9 @@ layout: default
         </div>
     </header>
 
-    {% assign filtered_posts = site.posts | where: 'author', page.short_name %}
+    {% assign filtered_posts = site.posts | where: 'author', page.author %}
     {% if filtered_posts.size > 0 %}
-    <h2>Posts by {{page.title}}: {{ filtered_posts.size}}</h2>
+    <h2>Posts by {{author.name}}: {{ filtered_posts.size}}</h2>
 
 
     <ul>

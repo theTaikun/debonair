@@ -13,10 +13,10 @@ layout: default
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {{ page.date | date: date_format }}
       </time>
-      {% assign author = site.authors | where: 'short_name', page.author | first %}
+      {% assign author = site.data.authors[page.author] %}
       {%- if author -%}
       <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="author_container">
-          <a class="author_page" href="{{ author.url | relative_url}}">
+          <a class="author_page" href="{{ '/about/authors/' |  relative_url}}{{author.name | slugify }}/">
         {%- if author.image -%}
            <img itemprop="image" style="width:15%" src="{{ "/assets/images/staff" | relative_url}}/{{author.image}}" />
         {%- endif -%}
