@@ -1,0 +1,3 @@
+# Theme defaults, which can be overriden in site's _config.yml
+debonair:
+  last_updated: true

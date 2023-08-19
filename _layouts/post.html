@@ -25,7 +25,10 @@ layout: default
       </div>
       {%- endif -%}</p>
       {% include share-buttons.html %}
-      <span class=article_last-update>Last Update: {{ page.last_updated | default: page.date | date: "%B %d, %Y" }}</span>
+      {%- if site.debonair.last_updated -%}
+      {% assign last_updated = page.seo.date_modified | default: page.last_modified_at %}
+        <span class=article_last-update>Last Update: {{ last_updated | default: page.date | date: "%B %d, %Y" }}</span>
+      {%- endif -%}
       {%- if page.editor_note -%}
           <p class="editor_note"><em>Editor Note</em> <br> {{ page.editor_note }}</p>
       {%- endif -%}
