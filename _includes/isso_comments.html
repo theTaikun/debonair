@@ -1,0 +1,9 @@
+{%- if page.comments != false -%}
+
+<script data-isso="//{{ site.isso.server }}/"
+        src="//{{ site.isso.server }}/js/embed.min.js"></script>
+
+<section id="isso-thread">
+    <noscript>Javascript needs to be activated to view comments.</noscript>
+</section>
+{%- endif -%}
