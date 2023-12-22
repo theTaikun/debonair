@@ -153,3 +153,11 @@ a.link-promote{
     color: red;
     font-weight: bold;
 }
+
+.breadcrumb_item{
+    display: inline;
+}
+
+.breadcrumb_item::after{
+    content: ">";
+}
