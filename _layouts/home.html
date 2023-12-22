@@ -3,16 +3,22 @@ layout: default
 ---
 
 <div class="home">
+    {% comment %}
     {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+        <h1 class="page-heading">{{ page.title }}</h1>
     {%- endif -%}
+    {% endcomment %}
 
     {{ content }}
 
     {%- if site.posts.size > 0 -%}
-    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
+    <!-- <h2 class="post-list-heading">Featured Posts</h2> -->
     <ul class="post-list">
-        {%- for post in site.posts -%}
+        {%- for featured_article in page.featured_articles -%}
+        {%- capture feature_article_path -%}
+            _posts/{{ featured_article }}.md
+        {%- endcapture -%}
+        {% assign post = site.posts | where: "path", feature_article_path | first %}
         <li class="article{% if forloop.index <=1 %} article--latest{% endif %}{% if post.draft %} article--draft{% endif %}">
             <a class="post-link" href="{{ post.url | relative_url }}">
                 {% if post.image %}
@@ -31,6 +37,48 @@ layout: default
         </li>
         {%- endfor -%}
     </ul>
+
+    <hr>
+    {% comment %} Move header navigation here, header with subscribe/search
+    <ul class="post-list">
+        {%- for featured_silo in page.featured_silos -%}
+        <li><a href="#{{ featured_silo }}_silo">{{ featured_silo | capitalize }}</a></li>
+        {%- endfor -%}
+    </ul>
+    {% endcomment %}
+    <hr>
+
+    {% assign silos = site.posts | map: "silo" | uniq %}
+
+    <ul>
+        {% for silo in page.featured_silos %}
+        <li>
+            <h2 id="{{ silo | default: "uncategorized" }}_silo">{{ silo | default: "uncategorized" | capitalize }}</h2>
+            {% assign posts = site.posts | where: 'silo', silo %}
+            <ul class="post-list">
+                {% for post in posts limit:3 %}
+                <li class="article{% if post.draft %} article--draft{% endif %}">
+                    <a class="post-link" href="{{ post.url | relative_url }}">
+                        {% if post.image %}
+                        <img class="feature_image" src={{post.image | relative_url}}>
+                        {% endif %}
+                        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                        <span class="post-meta">{{ post.date | date: date_format }}</span>
+                        <h3>{{ post.title | escape }}</h3>
+
+                        <p class="article-excerpt">
+                        {% if post.description %}{{ post.description | strip_html | truncate: 167 }}
+                        {% else %}{{ post.excerpt | strip_html | truncate: 167 }}
+                        {% endif %}
+                        </p>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <hr>
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
     {%- endif -%}
