@@ -8,9 +8,8 @@
         {%- include gtm-body_{{jekyll.environment}}.html -%}
     {%- endif -%}
     {%- include header.html -%}
-    <aside class="sidebar">
-        {%- include aside.html -%}
-    </aside>
+    {%- include category-nav.html -%}
+    {%- include aside.html -%}
     <main class="wrapper page-content" aria-label="Content" role="main">
           {{ content }}
     </main>

@@ -1,19 +1,17 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-<div class="home">
-    {% comment %}
-    {%- if page.title -%}
-        <h1 class="page-heading">{{ page.title }}</h1>
+  {%- include head.html -%}
+
+  <body>
+    {%- if site.gtm -%}
+        {%- include gtm-body_{{jekyll.environment}}.html -%}
     {%- endif -%}
-    {% endcomment %}
-
-    {{ content }}
+    {%- include header.html -%}
 
     {%- if site.posts.size > 0 -%}
     <!-- <h2 class="post-list-heading">Featured Posts</h2> -->
-    <ul class="post-list">
+    <ul class="post-list above-fold">
         {%- for featured_article in page.featured_articles -%}
         {%- capture feature_article_path -%}
             _posts/{{ featured_article }}.md
@@ -38,17 +36,17 @@ layout: default
         {%- endfor -%}
     </ul>
 
-    <hr>
-    {% comment %} Move header navigation here, header with subscribe/search
-    <ul class="post-list">
-        {%- for featured_silo in page.featured_silos -%}
-        <li><a href="#{{ featured_silo }}_silo">{{ featured_silo | capitalize }}</a></li>
-        {%- endfor -%}
-    </ul>
-    {% endcomment %}
-    <hr>
+    {% include category-nav.html %}
 
-    {% assign silos = site.posts | map: "silo" | uniq %}
+    {%- include aside.html -%}
+    <main class="wrapper page-content" aria-label="Content" role="main">
+
+<div class="home">
+    {% comment %}
+    {%- if page.title -%}
+        <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%}
+    {% endcomment %}
 
     <ul>
         {% for silo in page.featured_silos %}
@@ -83,3 +81,8 @@ layout: default
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
     {%- endif -%}
 </div>
+
+    </main>
+    {%- include footer.html -%}
+  </body>
+</html>

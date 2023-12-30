@@ -16,11 +16,17 @@ html{
     }
 }
 
+.above-fold {
+    margin-top: 50px;
+    @include inverse-media-query($on-palm){
+        grid-column: span 2;
+    }
+}
+
 .sidebar{
     display: none;
     background-color: lightgrey;
-    grid-column-start: 1;
-    grid-row-start: 1;
+    grid-area: aside;
     padding: 5vh;
     margin-top: $base-line-height * $base-font-size * 2.25;
     @include inverse-media-query($on-palm){
@@ -84,8 +90,7 @@ html{
 
 .site-footer{
     background-color: $grey-color-dark;
-    grid-column-start: 1;
-    grid-column-end: span 2;
+    grid-area: footer;
   @include inverse-media-query($on-palm){
     grid-column-end: span 2;
   }
@@ -159,5 +164,24 @@ a.link-promote{
 }
 
 .breadcrumb_item::after{
-    content: ">";
+    content: "/";
+    padding-left: 1rem;
+    font-size: 2rem;
+}
+
+.category_list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.category-nav{
+    grid-area: nav;
+    grid-column: span 2;
+    position: sticky;
+    top: 50px;
+    background-color: black;
+    a {
+        color: white;
+    }
 }
