@@ -176,6 +176,7 @@ a.link-promote{
 }
 
 .category-nav{
+    z-index: 1;
     grid-area: nav;
     grid-column: span 2;
     position: sticky;
