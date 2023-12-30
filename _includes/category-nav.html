@@ -1,0 +1,25 @@
+    <nav class="category-nav">
+        <ul class="category_list">
+            {% if site.featured_categories %}
+
+                {% assign featured_categories =  site.featured_categories %}
+
+            {% else %}
+                {% comment %} whitespace control important when using captures {% endcomment %}
+                {% capture joined_cats -%}
+                    {% for category in site.categories -%}
+                    {{ category.first}},
+                    {%- endfor %}
+                {%- endcapture %}
+                {% assign featured_categories = joined_cats | split: "," %}
+
+            {% endif %}
+
+            {%- for category in featured_categories -%}
+                {% assign category_name_slug = category | slugify %}
+                {% assign category_url = "/category/" | append: category_name_slug | append: "/" %}
+                <li><a class="page-link" href="{{ category_url | relative_url }}">{{ category }}</a></li>
+            {%- endfor -%}
+        </ul>
+    </nav>
+
